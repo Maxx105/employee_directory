@@ -3,7 +3,7 @@ UCI Boot Camp Homework 19 - Employee Directory
 
 Click [here](https://maxx105.github.io/employee_directory/) to open deployed Github pages application.
 
-![deployed application](public/assets/img/deployed_app.JPG)
+![deployed application](public/deployed_app.JPG)
 
 ## Description 
  This was the nineteenth homework assignment for the full stack web development program at UC Irvine, in which the goal was to build an employee directory application using React. The application should display a table of random users and when the user loads the page, the table of employees should render. In addition, the user should be able to sort the table by at least one category and filter the users by at least one property.
