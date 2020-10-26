@@ -7,6 +7,7 @@ import API from "../../utils/API";
 import "./style.css";
 
 let employeeArray = [];
+let newEmployeeArray = [];
 class Body extends Component {
     state = {
         placeholder: '',
@@ -54,6 +55,47 @@ class Body extends Component {
         }
     }
 
+    handleSortChange = event => {
+        newEmployeeArray = employeeArray;
+        if (event.target.value === "Alphabetically By Last Name (A → Z)") {
+            this.setState({
+                employees: employeeArray.sort(function(a, b){
+                    if (a.name.last < b.name.last) { return -1; }
+                    if (a.name.last > b.name.last) { return 1; }
+                    return 0;
+                })
+            });
+        } else if (event.target.value === "Alphabetically By Last Name (Z → A)") {
+            this.setState({
+                employees: employeeArray.sort(function(a, b){
+                    if (a.name.last > b.name.last) { return -1; }
+                    if (a.name.last < b.name.last) { return 1; }
+                    return 0;
+                })
+            });
+        } else if (event.target.value === "Alphabetically By First Name (A → Z)") {
+            this.setState({
+                employees: employeeArray.sort(function(a, b){
+                    if (a.name.first < b.name.first) { return -1; }
+                    if (a.name.first > b.name.first) { return 1; }
+                    return 0;
+                })
+            });
+        } else if (event.target.value === "Alphabetically By First Name (Z → A)") {
+            this.setState({
+                employees: employeeArray.sort(function(a, b){
+                    if (a.name.first > b.name.first) { return -1; }
+                    if (a.name.first < b.name.first) { return 1; }
+                    return 0;
+                })
+            });
+        } else if (event.target.value === "none") {
+            this.setState({
+                employees: newEmployeeArray
+            });
+        } 
+    }
+
     handleFilterSubmit = event => {
         this.setState({
             employees: employeeArray
@@ -68,7 +110,7 @@ class Body extends Component {
         let filteredByNameArray = employeeArray.filter(employee => {
             if (`${employee.name.first} ${employee.name.last}`.toLowerCase().includes(filterStringValue.toLowerCase())) {
                 return employee;
-            }
+            } 
         });
         if (filterTypeValue === "State") {
             this.setState({
@@ -91,9 +133,13 @@ class Body extends Component {
                     visibility = {this.state.visibility}
                     onClick = {event => this.handleFilterSubmit(event)}
                 ></FilterForm>
-                <SortForm></SortForm>
+                <SortForm
+                    onChange = {event => this.handleSortChange(event)}
+                ></SortForm>
                 <EmployeeCardTitle></EmployeeCardTitle>
-                <EmployeeCardData employees = {this.state.employees}></EmployeeCardData>
+                <EmployeeCardData 
+                    employees = {this.state.employees}
+                ></EmployeeCardData>
             </div>
         )
     }
