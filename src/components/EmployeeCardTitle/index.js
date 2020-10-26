@@ -3,7 +3,7 @@ import "./style.css";
 
 function EmployeeCardTitle() {
   return (
-    <li className="list-group-item shadow p-3 mb-5 bg-white rounded">
+    <li className="list-group-item shadow p-3 mb-5 bg-light rounded">
         <div className="row">
             <div className="col-md-2 col-sm-12" id="image"></div>
             <div className="col-md-2 col-sm-12" id="name">

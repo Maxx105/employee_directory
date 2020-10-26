@@ -34,6 +34,7 @@
     font-size: 2vw;
 }
 
-.list-group-item {
-    margin-bottom: 10px;
+#form {
+    margin: auto;
+    width: 50%;
 }

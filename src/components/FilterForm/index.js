@@ -6,25 +6,27 @@ class FilterForm extends Component {
         return (
         <div className="form-group">
             <label htmlFor="sel1">Filter By:</label>
-            <select className="form-control" id="sel1" placeholder="Sort By" onChange={this.props.onChange}>
+            <select className="form-control shadow bg-light" id="sel1" placeholder="Sort By" onChange={this.props.onChange}>
                 <option value="none"> Select an Option </option> 
                 <option value="State">State</option>
                 <option value="Name">Name</option>
             </select>
-            <div style={{marginTop: '5px'}}>
+            <div className="input-group mb-3">
                 <input 
-                    className="form-control" 
+                    className="form-control shadow bg-light" 
                     type="text" 
                     placeholder={this.props.placeholder} 
                     id={this.props.id} 
                     style={{visibility: this.props.visibility}}
                 ></input>
+                <div className="input-group-append">
                 <button 
                     type="submit" 
-                    className="btn btn-primary" 
+                    className="btn shadow btn-primary" 
                     style={{visibility: this.props.visibility}} 
                     onClick={this.props.onClick}
                 >Submit</button>
+                </div>
             </div>
         </div>
         )

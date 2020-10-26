@@ -7,7 +7,7 @@ import API from "../../utils/API";
 import "./style.css";
 
 let employeeArray = [];
-let newEmployeeArray = [];
+
 class Body extends Component {
     state = {
         placeholder: '',
@@ -123,16 +123,24 @@ class Body extends Component {
     render() {
         return (
             <div className="container-fluid">
-                <FilterForm 
-                    onChange = {event => this.handleFilterChange(event)}
-                    placeholder = {this.state.placeholder}
-                    id = {this.state.id}
-                    visibility = {this.state.visibility}
-                    onClick = {event => this.handleFilterSubmit(event)}
-                ></FilterForm>
-                <SortForm
-                    onChange = {event => this.handleSortChange(event)}
-                ></SortForm>
+                <div className = "container">
+                    <div className = "row" id="form">
+                        <div className = "col-md-6 col-sm-12">
+                        <FilterForm 
+                            onChange = {event => this.handleFilterChange(event)}
+                            placeholder = {this.state.placeholder}
+                            id = {this.state.id}
+                            visibility = {this.state.visibility}
+                            onClick = {event => this.handleFilterSubmit(event)}
+                        ></FilterForm>
+                        </div>
+                        <div className = "col-md-6 col-sm-12">
+                        <SortForm
+                            onChange = {event => this.handleSortChange(event)}
+                        ></SortForm>
+                        </div>
+                    </div>
+                </div>
                 <EmployeeCardTitle></EmployeeCardTitle>
                 <EmployeeCardData 
                     employees = {this.state.employees}

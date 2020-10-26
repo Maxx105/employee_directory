@@ -6,7 +6,7 @@ class EmployeeCardData extends Component {
         return (
         <div>
             {this.props.employees.map((employee, i) => (
-                <li className="list-group-item shadow p-3 mb-5 bg-white rounded" key={i}>
+                <li className="list-group-item shadow p-3 mb-5 bg-light rounded" key={i}>
                     <div className="row">
                         <div className="col-md-2 col-sm-12" id="image">
                             <img 
