@@ -56,7 +56,6 @@ class Body extends Component {
     }
 
     handleSortChange = event => {
-        newEmployeeArray = employeeArray;
         if (event.target.value === "Alphabetically By Last Name (A → Z)") {
             this.setState({
                 employees: employeeArray.sort(function(a, b){
@@ -89,10 +88,8 @@ class Body extends Component {
                     return 0;
                 })
             });
-        } else if (event.target.value === "none") {
-            this.setState({
-                employees: newEmployeeArray
-            });
+        } else {
+            return
         } 
     }
 
